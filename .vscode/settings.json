@@ -2,8 +2,17 @@
     "cSpell.words": [
         "amizory",
         "Bootloader",
+        "dport",
+        "iface",
+        "inet",
         "NEWNAME",
+        "nmcli",
+        "nmtui",
+        "nstat",
         "OLDNAME",
+        "qdisc",
+        "resolv",
+        "tulpn",
         "userdel",
         "usermod"
     ]

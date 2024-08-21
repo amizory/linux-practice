@@ -3,7 +3,7 @@
 * [Base command](#command)
 * [Administration](#administration)
 * [Boot Linux](#boot)
-* [](#)
+* [Network](#network)
 * [](#)
 * [](#)
 * [](#)
@@ -78,4 +78,36 @@ usermod [flags] ->
                     -d -> change dir PATH PATH
                     -l -> rename NEWNAME OLDNAME
 
+```
+
+### <a id="network">Network</a>
+
+```sh
+/etc/resolv.conf ---> DNS set ---> namespace 8.8.8.8
+
+/etc/network/interfaces
+
+-> Example:
+    auto ens33
+    iface ens33 inet static
+                address <ip a>
+                gateway <ip route>
+
+[systemctl restart networking.service]
+
+- ip a/addr             -> ip a add/del x.x.x.x/24 dev eth0
+- ip route/route show   -> ip route add x.x.x.0/24 via x.x.x.1 dev eth0
+- tc qdisc/filter show  -> packages
+- nstat/ss (-tulpn)     -> connection 
+- ip link show          -> ip link set (eth0 up/eth0 speed 1000)
+- iptables (-n -L)      -> iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+
+/etc/ufw/
+
+- ufw status/enable/disable/reload/allow 80/deny from x.x.x.x
+
+/etc/sysctl.conf (/etc/sysctl.d/) -> setting interfaces (advanced)
+
+[apt-get install network-manager]
+GNOME Network Manager/nmcli/nmtui -> ui/cli/text program (network settings)
 ```
